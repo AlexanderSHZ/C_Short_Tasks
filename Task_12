@@ -12,7 +12,7 @@ int main()
 	{
 		A=i;
 		B*=A/10+1;
-		printf("%f, %f, \n", A, B);
+		
 	}
 	printf("Prod = %f \n", B);
 	
