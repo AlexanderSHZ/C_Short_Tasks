@@ -1,0 +1,32 @@
+/* 23. Дано вещественное число Х и целое число N (>0). Найти значение выражения X - X^3/(3!) + X^5/(5!) -...+ (-1)^N * X^2N+1 / ((2N+1)!). 
+Полученное число является приближённым значением функции sin в точке Х.   */
+
+// Начал: 23:00 закончил: 23:33
+
+#include <stdio.h>
+
+int main()
+{
+	int N = 50;
+	int sign = -1;
+	double X = 1.0;
+	double power = X;
+	double factorial = 1.0;
+	double sin = X;
+	
+	for (int i=1; i<N; i++)
+	{
+		power *= X;
+		factorial *= ((double)i) + 1;
+		if (i%2 != 0)
+		{
+			sin += sign * power / factorial;
+			
+		}
+		sign *= -1;
+	}
+	
+	printf("sin(%4.2f) = %f", X, sin);
+	
+return 0;
+}
