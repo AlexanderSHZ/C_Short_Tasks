@@ -1,0 +1,26 @@
+/* 22. Дано вещественное число Х и целое число N (>0). Найти значение выражения 1+X+X^2/(2!)+...+X^N/(N!). Полученное число является 
+приближённым значением функции exp в точке Х.   */
+
+// Начал: 22:15 закончил 22:42
+
+#include <stdio.h>
+
+int main()
+{
+	int N = 20;
+	double X = 26.0;
+	double power = X;
+	double factorial = 1.0;
+	double exp = 1 + X;
+	
+	for (int i=1; i<N; i++)
+	{
+		power *= X;
+		factorial *= ((double)i) + 1;
+		exp += power / factorial; 
+	}
+	printf("Exponent in poiunt X = %f", exp);
+	
+	return 0;
+	
+}
