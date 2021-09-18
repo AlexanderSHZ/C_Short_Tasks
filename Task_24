@@ -1,0 +1,32 @@
+/* 24. Дано вещественное число Х и целое число N (>0). Найти значение выражения 1 - X^2/(2!) + X^4/(4!) -...+ (-1)^N * X^2N / ((2N)!). 
+Полученное число является приближённым значением функции cos в точке Х.   */
+
+// Начал: 23:33 закончил: 23:52
+
+# include <stdio.h>
+
+int main()
+{
+	int N = 20;
+	int sign = -1;
+	double X = 0.5;
+	double power = X;
+	double factorial = 1.0;
+	double cos = 1.0;
+	
+	for(int i=1; i<N; i++)
+	{
+		power *= X;
+		factorial *= ((double)i) +1;
+		if (i%2 ==0)
+		{
+			cos += sign * power / factorial;
+			
+		}			
+		sign *= -1;
+	}
+	printf ("cos(%4.2f) = %f \n", X, cos);
+	
+	return 0;
+	
+}
